@@ -1,0 +1,28 @@
+{
+  "name": "super-employee",
+  "version": "1.0.0",
+  "description": "employee tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeades92/super-employee.git"
+  },
+  "keywords": [
+    "promise",
+    "async"
+  ],
+  "author": "James Eades",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeades92/super-employee/issues"
+  },
+  "homepage": "https://github.com/jeades92/super-employee#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^9.1.5",
+    "mysql2": "^3.2.3"
+  }
+}
