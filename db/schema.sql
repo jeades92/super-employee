@@ -9,9 +9,7 @@ CREATE TABLE department (
   name VARCHAR(30)
 );
 
-INSERT INTO department (name)
-VALUES ("Sales"),
-("Finance");
+
 
 CREATE TABLE role (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,9 +19,7 @@ CREATE TABLE role (
     FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
-INSERT INTO role (title, salary, department_id)
-VALUES ("Manager", 10000, 1),
-		("Buyer", 5000, 2);
+
         
 CREATE TABLE employees (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -34,5 +30,6 @@ CREATE TABLE employees (
     FOREIGN KEY (role_id) REFERENCES role(id),
     FOREIGN KEY (manager_id) REFERENCES employees(id)
 );
+
 
 
