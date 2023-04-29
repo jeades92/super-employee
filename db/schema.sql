@@ -31,5 +31,7 @@ CREATE TABLE employees (
     FOREIGN KEY (manager_id) REFERENCES employees(id)
 );
 
-
+select * from department;
+select * from role;
+select * from employees;
 
