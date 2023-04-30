@@ -186,7 +186,33 @@ async function addRole(){
     // console.log(`Added new role: ${answer.roleTitle}`)
 };
 
-async function updateRole(){};
+async function updateRole(){
+    const employeeData = await connection.query('select * from employees')
+    const employeeChoices = employeeData[0].map(({ id, first_name, last_name }) => ({ name: `${first_name} ${last_name}`,  value: id }))
+
+    const roleData = await connection.query("select * from role")
+    const roleChoices = roleData[0].map(({ id, title }) => ({ name: title, value: id}))
+
+    const answer = await inquirer.prompt([
+        {
+            type: 'list',
+            name: 'employeeUpdate',
+            message: 'Which employees role would you like to update',
+            choices: employeeChoices
+        },
+        {
+            type: 'list',
+            name: 'newRole',
+            message: 'What is the employees new role',
+            choices: roleChoices
+        },
+    ])
+
+    const { employeeUpdate, newRole } = answer;
+    await connection.query(`update employees set role_id = ? where id = ?`, [newRole, employeeUpdate])
+    console.log("Employee role has been updated")
+    mainMenu()
+};
 
 
 
