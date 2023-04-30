@@ -154,7 +154,37 @@ async function addEmployee(){
     mainMenu()
 };
 
-async function addRole(){};
+async function addRole(){
+    const departmentData = await connection.query("select * from department")
+    const departmentChoices = departmentData[0].map(({id, name}) => ({name, value:id}))
+
+    const answer = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'roleTitle',
+            message: 'What is the title of the role you would like to add'
+        },
+        {
+            type: 'input',
+            name: 'roleSalary',
+            message: 'What is the salary for this role'
+        },
+        {
+            type: 'list',
+            name: 'departmentId',
+            message: 'Which department does this role belong to',
+            choices: departmentChoices
+        },
+    ]);
+    
+    const newRoleData = await connection.query(
+        'insert into role (title, salary, department_id) values (?, ?, ?)',
+        [answer.roleTitle, answer.roleSalary, answer.departmentId])
+
+    mainMenu()
+
+    // console.log(`Added new role: ${answer.roleTitle}`)
+};
 
 async function updateRole(){};
 
