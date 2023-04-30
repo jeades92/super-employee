@@ -31,5 +31,9 @@ Users can navigate the menu using the arrow keys and press enter to select an op
 
 This project was built using Node.js, Inquirer.js, and console.table.js.
 
-Matthew Calimbas
+Matthew Calimbas,
 Alexis Gonzales
+
+## Video Walkthrough
+
+https://drive.google.com/file/d/1p22P3__0e23EdUxeRDc_E4naqdL0nhY-/view
