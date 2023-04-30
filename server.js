@@ -112,9 +112,9 @@ async function addDepartment(){
             message: "What's the name of the department you would like to add",
         }
     ])
-    console.log(answer)
-    const departmentData = await connection.query("insert into department(name) values (?)", answer.departmentName)
-    console.log (departmentData)
+    // console.log(answer)
+    const [departmentData, fields] = await connection.execute("insert into department(name) values (?)", [answer.departmentName])
+    mainMenu()
 };
 
 async function addEmployee(){
